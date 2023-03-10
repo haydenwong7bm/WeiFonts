@@ -269,7 +269,7 @@ def script():
     f = f'input/sans/AdvocateAncientSans-Regular.ttf'
     run(['-i', f, '-tg', 'msgothic', '-d', f'output/sans'])
     
-    f = f'input/sans/hw/AdvocateAncientSansHW-Regular.ttf'
+    f = f'input/sans/AdvocateAncientSansHW-Regular.ttf'
     run(['-i', f, '-tg', 'msgothic', '-d', f'output/sans/hw'])
     
     # Serif fonts
