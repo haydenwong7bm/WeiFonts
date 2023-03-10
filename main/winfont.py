@@ -244,7 +244,8 @@ def main():
 def script():
     # Initalize output folders
     
-    shutil.rmtree('output')
+    if Path('output').exists():
+        shutil.rmtree('output')
     
     for folder in ['sans', 'sans/hw', 'sans-y', 'serif', 'serif/hw']:
         Path(f"output/{folder}").mkdir(parents=True)
