@@ -279,16 +279,16 @@ def script():
     files = [f'input/serif/AdvocateAncientSerif-Regular.ttf',
              f'input/serif/AdvocateAncientSerif-Bold.ttf']
     for f in files:
-        run(['-i', f, '-tg', target, '-d', f'output'])
+        run(['-i', f, '-tg', target, '-d', f'output/serif'])
     
     files = [f'input/serif/AdvocateAncientSerifHW-Regular.ttf',
              f'input/serif/AdvocateAncientSerifHW-Bold.ttf']
     for f in files:
-        run(['-i', f, '-tg', target, '-d', f'output/hw'])
+        run(['-i', f, '-tg', target, '-d', f'output/serif/hw'])
     
     f = f'input/serif/AdvocateAncientSerifHW-Regular.ttf'
     for target in ['simsun', 'msmincho', 'batang']:
-        run(['-i', f, '-tg', target, '-d', f'output/hw'])
+        run(['-i', f, '-tg', target, '-d', f'output/serif/hw'])
     
     # Change directory to 'output' folder for font cleanup and ttc generation
     
@@ -346,10 +346,10 @@ def script():
     
     os.chdir('output')
     
-    os.system(f'otf2otc -o sans/YuGothR.ttc sans/YuGothic-Regular.ttf sans-y/YuGothicUI-Semilight.ttf')
-    os.system(f'otf2otc -o sans/YuGothB.ttc sans/YuGothic-Bold.ttf sans-y/YuGothicUI-Bold.ttf sans-y/YuGothicUI-SemiBold.ttf')
-    os.system(f'otf2otc -o sans/YuGothM.ttc sans/YuGothic-Medium.ttf sans-y/YuGothicUI-Regular.ttf')
-    os.system(f'otf2otc -o sans/YuGothL.ttc sans/YuGothic-Light.ttf sans-y/YuGothicUI-Light.ttf')
+    os.system(f'python {otf2otc} -o sans/YuGothR.ttc sans/YuGothic-Regular.ttf sans-y/YuGothicUI-Semilight.ttf')
+    os.system(f'python {otf2otc} -o sans/YuGothB.ttc sans/YuGothic-Bold.ttf sans-y/YuGothicUI-Bold.ttf sans-y/YuGothicUI-SemiBold.ttf')
+    os.system(f'python {otf2otc} -o sans/YuGothM.ttc sans/YuGothic-Medium.ttf sans-y/YuGothicUI-Regular.ttf')
+    os.system(f'python {otf2otc} -o sans/YuGothL.ttc sans/YuGothic-Light.ttf sans-y/YuGothicUI-Light.ttf')
     
     # Remove all .ttf files
     
@@ -361,9 +361,9 @@ def script():
     for d in dirs:
         shutil.rmtree(d)
     
-    os.chdir('..')
-    
     shutil.rmtree('sans-y')
+    
+    os.chdir('..')
     
     # Malgun Gothic
     
