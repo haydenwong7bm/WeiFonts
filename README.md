@@ -7,9 +7,9 @@
 
 ### 2. 使用命令行
 
-#### 转換思源黑体（或其衍生字体）至全部Windows中日韩代替字体
+#### 转換思源字体（或其衍生字体）至全部Windows中日韩代替字体
 
-把思源黑体放在`input`目彔內，之后运行 `python winfont.py`。字体保存于`output`目彔內。
+把思源黑体及宋体所有字重分別放在`input/sans`及`input/serif`目彔內，之后运行 `python winfont.py`。字体保存于`output/sans`及`output/serif`目彔內。
 
 #### 转換个別字体
 

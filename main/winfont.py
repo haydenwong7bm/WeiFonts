@@ -242,8 +242,14 @@ def main():
         script()
 
 def script():
+    # Initalize output folders
+    
+    shutil.rmtree('output')
+    
     for folder in ['sans', 'sans/hw', 'sans-y', 'serif', 'serif/hw']:
-        Path(f"output/{folder}").mkdir(parents=True, exist_ok=True)
+        Path(f"output/{folder}").mkdir(parents=True)
+    
+    # Sans fonts
     
     for target in ['msyh', 'msjh']:
         files = [f'input/sans/AdvocateAncientSans-Regular.ttf',
@@ -265,26 +271,29 @@ def script():
     f = f'input/sans/hw/AdvocateAncientSansHW-Regular.ttf'
     run(['-i', f, '-tg', 'msgothic', '-d', f'output/sans/hw'])
     
-    for folder in ['serif', 'serif/hw']:
-        if folder.endswith('hw'):
-            hw = 'HW'
-        else:
-            hw = ''
-            
-        files = [f'input/{folder}/AdvocateAncientSerif{hw}-Regular.ttf',
-                 f'input/{folder}/AdvocateAncientSerif{hw}-Bold.ttf']
-        
-        target = 'mingliu'
-        for f in files:
-            run(['-i', f, '-tg', target, '-d', f'output/{folder}'])
-        
-        f = f'input/{folder}/AdvocateAncientSerif{hw}-Regular.ttf'
-        for target in ['simsun', 'msmincho', 'batang']:
-            run(['-i', f, '-tg', target, '-d', f'output/{folder}'])
+    # Serif fonts
+    
+    target = 'mingliu'
+    
+    files = [f'input/serif/AdvocateAncientSerif-Regular.ttf',
+             f'input/serif/AdvocateAncientSerif-Bold.ttf']
+    for f in files:
+        run(['-i', f, '-tg', target, '-d', f'output'])
+    
+    files = [f'input/serif/AdvocateAncientSerifHW-Regular.ttf',
+             f'input/serif/AdvocateAncientSerifHW-Bold.ttf']
+    for f in files:
+        run(['-i', f, '-tg', target, '-d', f'output/hw'])
+    
+    f = f'input/serif/AdvocateAncientSerifHW-Regular.ttf'
+    for target in ['simsun', 'msmincho', 'batang']:
+        run(['-i', f, '-tg', target, '-d', f'output/hw'])
+    
+    # Change directory to 'output' folder for font cleanup and ttc generation
     
     os.chdir('output')
     
-    # Cleanup serif fonts
+    # Serif fonts
     
     for w in ['', 'bd']:
         os.system(f'otf2otc -o serif/mingliu{w}.ttc serif/hw/mingliu{w}.ttf serif/pmingliu{w}.ttf serif/hw/mingliu{w}_hkscs.ttf')
@@ -292,7 +301,7 @@ def script():
     os.system(f'otf2otc -o serif/msmincho.ttc serif/hw/msmincho.ttf serif/mspmincho.ttf')
     os.system(f'otf2otc -o serif/batang.ttc serif/hw/batangche.ttf serif/batang.ttf')
     
-    # Cleanup sans fonts
+    # Sans fonts
     
     os.system(f'otf2otc -o sans/msgothic.ttc sans/hw/msgothic.ttf sans/mspgothic.ttf')
     
@@ -303,7 +312,7 @@ def script():
     for w in ['', 'b']:
         os.system(f'otf2otc -o sans/meiryo{w}.ttc sans/meiryo{w}.ttf sans/meiryoui{w}.ttf')
     
-    os.chdir('..')
+    os.chdir('..') # Finished cleanup and ttc generation
     
     # Yu Gothic
     
@@ -341,7 +350,7 @@ def script():
     os.system(f'otf2otc -o sans/YuGothM.ttc sans/YuGothic-Medium.ttf sans-y/YuGothicUI-Regular.ttf')
     os.system(f'otf2otc -o sans/YuGothL.ttc sans/YuGothic-Light.ttf sans-y/YuGothicUI-Light.ttf')
     
-    # Remove ttf
+    # Remove all .ttf files
     
     files = glob.glob('**/*.ttf')
     for f in files:
