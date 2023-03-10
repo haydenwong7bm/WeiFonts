@@ -23,8 +23,8 @@
   | msjh   | 微軟正黑體、微軟正黑體 UI |
   | mingliu | 細明體、新細明體、細明體_HKSCS |
   | mingliub | 細明體-ExtB、新細明體-ExtB、細明體_HKSCS-ExtB |
-  | simsunb  | 宋体、新宋体 |
-  | simsun  | 宋体-ExtB |
+  | simsun  | 宋体、新宋体 |
+  | simsunb  | 宋体-ExtB |
   | yugoth  | Yu Gothic、Yu Gothic UI |
   | msgothic | MS Gothic、MS UI Gothic、MS PGothic |
   | malgun  | Malgun Gothic |
