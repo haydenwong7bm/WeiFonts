@@ -15,7 +15,7 @@ if platform.system() in ('Mac', 'Darwin'):
 if platform.system() == 'Linux':
     otfccdump += '2'
     otfccbuild += '2'
-TG= ('msyh', 'msjh', 'mingliu', 'simsun', 'yugoth', 'msgothic', 'malgun', 'msmincho', 'meiryo', 'batang')
+TG= ('msyh', 'msjh', 'mingliu', 'mingliub', 'simsun', 'simsunb', 'yugoth', 'msgothic', 'malgun', 'msmincho', 'meiryo', 'batang')
 WT=('extralight', 'light', 'semilight', 'normal', 'regular', 'medium', 'semibold', 'bold', 'heavy')
 
 def getwt(font):
