@@ -65,43 +65,8 @@ namespace toWinFonts
                 return;
             }
 
-            string tg = "";
-            switch (comboBox1.SelectedIndex)
-            {
-                case 0:
-                    tg = "msyh";
-                    break;
-                case 1:
-                    tg = "msjh";
-                    break;
-                case 2:
-                    tg = "mingliu";
-                    break;
-                case 3:
-                    tg = "simsun";
-                    break;
-                case 4:
-                    tg = "yugoth";
-                    break;
-                case 5:
-                    tg = "msgothic";
-                    break;
-                case 6:
-                    tg = "malgun";
-                    break;
-                case 7:
-                    tg = "msmincho";
-                    break;
-                case 8:
-                    tg = "meiryo";
-                    break;
-                case 9:
-                    tg = "batang";
-                    break;
-                default:
-                    break;
-            }
-
+            string[] tgs = { "msyh", "msjh", "mingliu", "simsun", "simhei", "msgothic", "msmincho", "meiryo", "malgun", "yugoth", "yumin", "batang", "gulim", "allsans", "allserif", "all", "mingliub", "simsunb" };
+            string tg = tgs[comboBox1.SelectedIndex];
             string pyfile = path + "winfont.py";
 
             pyfile = pyfile.Replace('\\', '/');
@@ -109,6 +74,10 @@ namespace toWinFonts
             if (comboBox2.SelectedIndex != 0)
             {
                 args += $" -wt {comboBox2.Text}";
+            }
+            if (checkBoxRmTTF.Checked)
+            {
+                args += " -r";
             }
             panelMain.Enabled = false;
             Cursor = Cursors.WaitCursor;
