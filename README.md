@@ -22,8 +22,7 @@
   | yugoth  | Yu Gothic、Yu Gothic UI |
   | yumin  | Yu Mincho |
   | batang  | Batang、BatangChe、Gungsuh、GungsuhChe |
-  | gulim  | Gulim、GulimChe |
-  | dotum  | Dotum、DotumChe |
+  | gulim  | Gulim、GulimChe、Dotum、DotumChe |
   | allsans  | 以上所有无衬线字体 |
   | allserif  | 以上所有衬线字体 |
   | all  | 以上所有字体 |
