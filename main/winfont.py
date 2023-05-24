@@ -14,7 +14,7 @@ if platform.system() in ('Mac', 'Darwin'):
 if platform.system() == 'Linux':
 	otfccdump += '2'
 	otfccbuild += '2'
-TG= ('msyh', 'msjh', 'mingliu', 'simsun', 'simhei', 'msgothic', 'msmincho', 'meiryo', 'malgun', 'yugoth', 'yumin', 'batang', 'gulim', 'allsans', 'allserif', 'all', 'mingliub', 'simsunb')
+TG= ('msyh', 'msjh', 'mingliu', 'simsun', 'simhei', 'msgothic', 'msmincho', 'meiryo', 'malgun', 'yugoth', 'yumin', 'batang', 'gulim', 'allsans', 'allserif', 'all', 'mingliub', 'simsunb', 'sourcehan')
 WT=('thin', 'extralight', 'light', 'semilight', 'demilight', 'normal', 'regular', 'medium', 'demibold', 'semibold', 'bold', 'black', 'heavy', 'all')
 end={'Thin':'th', 'ExtraLight':'xl', 'Light':'l', 'Semilight':'sl', 'DemiLight':'dm', 'Normal':'nm', 'Regular':'', 'Medium':'md', 'Demibold':'db', 'SemiBold':'sb', 'Bold':'bd', 'Black':'bl', 'Heavy':'hv'}
 
@@ -102,7 +102,7 @@ def bldttcft(font, tgft, wt):
 			nmslist=[wtbuil(ncfg[tgft+'l'], wt), wtbuil(ncfg['n'+tgft+'l'], wt)]
 		else:
 			nmslist=[ncfg[tgft+end[wt]], ncfg['n'+tgft+end[wt]]]
-		ttflist=[otpth(tgft+end[wt]+'.ttf'), otpth('p'+tgft+end[wt]+'.ttf')]
+		ttflist=[otpth(tgft+end[wt]+'.ttf'), otpth('n'+tgft+end[wt]+'.ttf')]
 		ttcfil=otpth(tgft+end[wt]+'.ttc')
 	elif tgft in ('mingliu', 'mingliub'):
 		if wt not in ('Regular', 'Bold', 'Light'):
@@ -202,9 +202,9 @@ def parseArgs(args):
 			rmttf = True
 		else:
 			raise RuntimeError("Unknown option '%s'." % (arg))
-	if not inFilePath:
+	if not inFilePath and tarGet != 'sourcehan':
 		raise RuntimeError("You must specify one input font.")
-	if not os.path.isfile(inFilePath):
+	if not os.path.isfile(inFilePath) and tarGet != 'sourcehan':
 		raise FileNotFoundError(f"Can not find file \"{inFilePath}\".\n")
 	if not tarGet:
 		raise RuntimeError(f"You must specify target.{TG}")
@@ -220,9 +220,9 @@ def parseArgs(args):
 		else: weight=weight.capitalize()
 	if outDir:
 		if not os.path.isdir(outDir):
-			raise RuntimeError(f"Can not find directory \"{outDir}\".\n")
-		else:
-			outd=outDir
+			Path(outDir).mkdir()
+		
+		outd=outDir
 	return inFilePath, tarGet, weight
 
 @lru_cache(maxsize=80)
@@ -232,10 +232,15 @@ def load_font(ftin):
 def run(args):
 	ftin, tg, setwt=parseArgs(args)
 	
-	if setwt.lower() == 'all':
-		run_allwt(args)
+	if tg == 'sourcehan':
+		run_sourcehanfonts()
 	else:
 		print('正在载入字体...')
+		allsans = ('msyh', 'msjh', 'yugoth', 'msgothic', 'meiryo', 'gulim')
+		allserif = ('mingliu', 'simsun', 'msmincho', 'batang')
+		
+		allfonts = allsans + allserif
+		
 		font = load_font(ftin)
 		if not setwt:
 			setwt=getwt(font)
@@ -250,13 +255,13 @@ def run(args):
 		if tg in ('yumin', 'all', 'allserif'):
 			bldttfft(font, 'yumin', setwt)
 		if tg=='all':
-			for stg in ('msyh', 'msjh', 'mingliu', 'simsun', 'yugoth', 'msgothic', 'msmincho', 'meiryo', 'batang', 'gulim'):
+			for stg in allfonts:
 				bldttcft(font, stg, setwt)
 		elif tg=='allsans':
-			for stg in ('msyh', 'msjh', 'yugoth', 'msgothic', 'meiryo', 'gulim'):
+			for stg in allsans:
 				bldttcft(font, stg, setwt)
 		elif tg=='allserif':
-			for stg in ('mingliu', 'simsun', 'msmincho', 'batang'):
+			for stg in allserif:
 				bldttcft(font, stg, setwt)
 		elif tg=='simsunb':
 			bldttfft(font, tg, setwt)
@@ -264,33 +269,28 @@ def run(args):
 			bldttcft(font, tg, setwt)
 		print('结束!')
 
-def run_allwt():
+def run_sourcehanfonts():
 	# Initalize path variables and output folders
 	global outd, rmttf
-    
+	
 	outdirs = {}
+	out_dir = outd
 	
-    outd = output
-	out_dir = 'output' #
+	if Path(out_dir).exists():
+		shutil.rmtree(out_dir)
 	
-	if Path(outd).exists():
-		shutil.rmtree(outd)
-	
-	for folder in ['sans', 'sans/hw', 'sans-ui', 'serif', 'serif/hw']:
-		outdirs[folder] = str(Path(outd) / folder)
-		(Path(outd) / folder).mkdir(parents=True)
+	for folder in ['sans', 'sans/hw', 'sans-ui', 'serif', 'serif/hw', 'rounded', 'rounded/hw']:
+		outdirs[folder] = str(Path(out_dir) / folder)
+		(Path(out_dir) / folder).mkdir(parents=True)
 	
 	# Sans fonts
-	
 	for target in ['msyh', 'msjh']:
 		files = [f'input/sans/AdvocateAncientSans-Regular.ttf',
 				 f'input/sans/AdvocateAncientSans-Bold.ttf',
 				 f'input/sans/AdvocateAncientSans-Light.ttf']
 		
 		for f in files:
-            font = load_font(f)
-            outd = outdirs['sans']
-			bldttfft(font, target, getwt(font))
+			run(['-i', f, '-tg', target, '-d', outdirs['sans']])
 		
 	files = [f'input/sans/AdvocateAncientSans-Regular.ttf',
 			 f'input/sans/AdvocateAncientSans-Bold.ttf']
@@ -303,6 +303,16 @@ def run_allwt():
 	for target in ['msgothic', 'gulim']:
 		run(['-i', f, '-tg', target, '-d', outdirs['sans']])
 		run(['-i', f_hw, '-tg', target, '-d', outdirs['sans/hw']])
+	
+	# Rounded fonts
+	
+	f = f'input/rounded/AdvocateAncientRounded-Regular.ttf'
+	f_hw = f'input/rounded/AdvocateAncientRoundedHW-Regular.ttf'
+	
+	target = 'gulim'
+	
+	run(['-i', f, '-tg', target, '-d', outdirs['rounded']])
+	run(['-i', f_hw, '-tg', target, '-d', outdirs['rounded/hw']])
 	
 	# Serif fonts
 	
@@ -331,7 +341,6 @@ def run_allwt():
 	# Sans fonts
 	
 	subprocess.run(['python', otf2otc, '-o', f'sans/msgothic.ttc', 'sans/hw/msgothic.ttf', 'sans/mspgothic.ttf'])
-	subprocess.run(['python', otf2otc, '-o', f'sans/msgothic.ttc', 'sans/hw/gulimche.ttf', 'sans/gulim.ttf'])
 	
 	for target in ['msjh', 'msyh']:
 		for w in ['', 'bd', 'l']:
@@ -339,6 +348,10 @@ def run_allwt():
 	
 	for w in ['', 'b']:
 		subprocess.run(['python', otf2otc, '-o', f'sans/meiryo{w}.ttc', f'sans/meiryo{w}.ttf', f'sans/meiryoui{w}.ttf'])
+	
+	# Gulim
+	
+	subprocess.run(['python', otf2otc, '-o', f'sans/gulim.ttc', 'rounded/hw/gulimche.ttf', 'rounded/gulim.ttf', 'sans/hw/dotumche.ttf', 'sans/dotum.ttf'])
 	
 	# Serif fonts
 	
@@ -394,6 +407,7 @@ def run_allwt():
 		shutil.rmtree(d)
 	
 	shutil.rmtree('sans-ui')
+	shutil.rmtree('rounded')
 	
 	os.chdir('..')
 	
