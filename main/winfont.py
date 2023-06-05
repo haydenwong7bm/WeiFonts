@@ -421,6 +421,19 @@ def run_sourcehanfonts():
 	f = f'input/sans/AdvocateAncientSans-Light.ttf'
 	run(['-i', f, '-tg', 'malgun', '-d', outdirs['sans'], '-wt', 'Semilight'])
 	
+	# Yu Mincho
+	target = 'yumin'
+	
+	files = [f'input/serif/AdvocateAncientSerif-Regular.ttf',
+			 f'input/serif/AdvocateAncientSerif-Bold.ttf',
+			 f'input/serif/AdvocateAncientSerif-Light.ttf']
+	
+	for f in files:
+		run(['-i', f, '-tg', target, '-d', outdirs['serif']])
+	
+	f = f'input/serif/AdvocateAncientSerif-Heavy.ttf'
+	run(['-i', f, '-tg', target, '-d', outdirs['serif'], '-wt', 'Demibold'])
+	
 	# SimHei
 	f = f'input/sans/AdvocateAncientSans-Regular.ttf'
 	run(['-i', f, '-tg', 'simhei', '-d', outdirs['sans'], '-wt', 'Regular'])
