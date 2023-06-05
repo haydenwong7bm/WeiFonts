@@ -7,6 +7,7 @@ otfccdump = os.path.join(pydir, 'otfcc/otfccdump')
 otfccbuild = os.path.join(pydir, 'otfcc/otfccbuild')
 otf2otc = os.path.join(pydir, 'otf2otc.py')
 outd=str()
+it='a'
 rmttf=False
 if platform.system() in ('Mac', 'Darwin'):
 	otfccdump += '1'
@@ -28,6 +29,24 @@ def getwt(font):
 	if wtc in wtn:
 		return wtn[wtc]
 	return 'Regular'
+
+def setuswt(font, wt):
+	uswt={'thin':100, 'extralight':250, 'light':300, 'semilight':350, 'demilight':350, 'normal':350, 'regular':400, 'medium':500, 'demibold':600, 'semibold':600, 'bold':700, 'black':900, 'heavy':900}
+	font['OS_2']['usWeightClass']=uswt[wt]
+	font['OS_2']['fsSelection']['bold']=wt=='bold'
+	font['OS_2']['fsSelection']['regular']=(wt=='regular' and it!='y')
+	font['head']['macStyle']['bold']=wt=='bold'
+
+def getit(font):
+	if 'macStyle' in font['head'] and 'italic' in font['head']['macStyle'] and font['head']['macStyle']['italic']:
+		return 'y'
+	return 'n'
+
+def setit(font, isit):
+	font['OS_2']['fsSelection']['italic']=isit
+	if isit:
+		font['OS_2']['fsSelection']['regular']=False
+	font['head']['macStyle']['italic']=isit
 
 def getver(nmo):
 	for n1 in nmo:
@@ -59,6 +78,32 @@ def wtbuil(nml, wt):
 		nwtnm.append(n2)
 	return nwtnm
 
+def itbuil(nms):
+	nwtnm=list()
+	isbold=False
+	for n1 in nms:
+		if n1['nameID']==2 and 'Bold' in n1['nameString']:
+			isbold=True
+			break
+	for n1 in nms:
+		n2=dict(n1)
+		if n2['nameID']==2:
+			if 'Italic' in n2['nameString']:
+				return nms
+			if isbold:
+				n2['nameString']='Bold Italic'
+			else:
+				n2['nameString']='Italic'
+		elif n2['nameID'] in (3, 4, 17):
+			n2['nameString']+=' Italic'
+		elif n2['nameID']==6:
+			if '-' in n2['nameString']:
+				n2['nameString']+='Italic'
+			else:
+				n2['nameString']+='-Italic'
+		nwtnm.append(n2)
+	return nwtnm
+
 def bldttfft(font, tgft, wt):
 	ncfg=json.load(open(os.path.join(pydir, f'names/{tgft}.json'), 'r', encoding = 'utf-8'))
 	font['OS_2']['ulCodePageRange1']=ncfg['ulCodePageRange1']
@@ -75,6 +120,9 @@ def bldttfft(font, tgft, wt):
 		nmslist=ncfg[tgft+end[wt]]
 	
 	ttflist=otpth(tgft+end[wt]+'.ttf')
+	if it=='y':
+		nmslist=itbuil(nmslist)
+		ttflist=otpth(tgft+end[wt]+'It.ttf')
 	font['head']['fontRevision']=float(getver(nmslist))
 	font['name']=nmslist
 	print('正在生成字体...')
@@ -88,6 +136,8 @@ def bldttfft(font, tgft, wt):
 def bldttcft(font, tgft, wt):
 	ncfg=json.load(open(os.path.join(pydir, f'names/{tgft}.json'), 'r', encoding = 'utf-8'))
 	font['OS_2']['ulCodePageRange1']=ncfg['ulCodePageRange1']
+	spwt=dict()
+	isit=it=='y'
 	if tgft in ('msyh', 'msjh', 'meiryo'):
 		if wt not in ('Regular', 'Bold', 'Light'):
 			nmslist=[wtbuil(ncfg[tgft+'l'], wt), wtbuil(ncfg[tgft+'ui'+'l'], wt)]
@@ -143,15 +193,18 @@ def bldttcft(font, tgft, wt):
 		if wt =='Regular':
 			nmslist=[ncfg['yugoth'], ncfg['yugothuisl']]
 			ttflist=[otpth('YuGothR.ttf'), otpth('YuGothuiSL.ttf')]
+			spwt[1]='semilight'
 			ttcfil=otpth('YuGothR.ttc')
 		elif wt =='Bold':
 			nmslist=[ncfg['yugothbd'], ncfg['yugothuibd'], ncfg['yugothuisb']]
 			ttflist=[otpth('YuGothB.ttf'), otpth('YuGothuiB.ttf'), otpth('YuGothuiSB.ttf')]
+			spwt[2]='semibold'
 			ttcfil=otpth('YuGothB.ttc')
 		elif wt =='Medium':
 			nmslist=[ncfg['yugothmd'], ncfg['yugothui']]
 			ttflist=[otpth('YuGothM.ttf'), otpth('YuGothuiR.ttf')]
 			ttcfil=otpth('YuGothM.ttc')
+			spwt[1]='regular'
 		elif wt =='Light':
 			nmslist=[ncfg['yugothl'], ncfg['yugothuil']]
 			ttflist=[otpth('YuGothL.ttf'), otpth('YuGothuiL.ttf')]
@@ -160,12 +213,25 @@ def bldttcft(font, tgft, wt):
 			nmslist=[wtbuil(ncfg['yugothl'], wt), wtbuil(ncfg['yugothuil'], wt)]
 			ttflist=[otpth('YuGoth'+end[wt].upper()+'.ttf'), otpth('YuGothui'+end[wt].upper()+'.ttf')]
 			ttcfil=otpth('YuGoth'+end[wt].upper()+'.ttc')
+	if isit:
+		nmslist=[itbuil(nm) for nm in nmslist]
+		ttflist=[ttfl.replace('.ttf', 'It.ttf') for ttfl in ttflist]
+		ttcfil=ttcfil.replace('.ttc', 'It.ttc')
 	print('正在生成字体...')
 	tmpf=list()
+	wtcls=font['OS_2']['usWeightClass']
+	isbd='fsSelection' in font['OS_2'] and 'bold' in font['OS_2']['fsSelection'] and font['OS_2']['fsSelection']['bold']
+	isrg='fsSelection' in font['OS_2'] and 'regular' in font['OS_2']['fsSelection'] and font['OS_2']['fsSelection']['regular']
 	for i in range(len(nmslist)):
 		font['head']['fontRevision']=float(getver(nmslist[i]))
 		font['name']=nmslist[i]
+		if i in spwt:
+			setuswt(font, spwt[i])
 		tmpf.append(mktmp(font))
+		font['OS_2']['usWeightClass']=wtcls
+		font['OS_2']['fsSelection']['bold']=isbd
+		font['OS_2']['fsSelection']['regular']=isrg
+		font['head']['macStyle']['bold']=isbd
 	del font
 	gc.collect()
 	print('正在保存TTFs...')
@@ -180,7 +246,7 @@ def bldttcft(font, tgft, wt):
 	print('完成!')
 
 def parseArgs(args):
-	global outd, rmttf
+	global outd, rmttf, it
 	inFilePath, outDir, tarGet, weight=(str() for i in range(4))
 	i, argn = 0, len(args)
 	while i < argn:
@@ -194,6 +260,9 @@ def parseArgs(args):
 			i += 1
 		elif arg == "-wt":
 			weight = args[i]
+			i += 1
+		elif arg == "-it":
+			it = args[i]
 			i += 1
 		elif arg == "-tg":
 			tarGet = args[i].lower()
@@ -210,6 +279,9 @@ def parseArgs(args):
 		raise RuntimeError(f"You must specify target.{TG}")
 	elif tarGet not in TG:
 		raise RuntimeError(f"Unknown target \"{tarGet}\"，please use {TG}.\n")
+
+	if it.lower() not in ('a', 'y', 'n'):
+		raise RuntimeError(f'Unknown italic setting "{it}"，please use "y" or "n".\n')
 	if weight:
 		if weight.lower() not in WT:
 			raise RuntimeError(f'Unknown weight "{weight}"，please use {tuple(end.keys())}.\n')
@@ -230,6 +302,7 @@ def load_font(ftin):
 	return json.loads(subprocess.check_output((otfccdump, '--no-bom', ftin)).decode("utf-8", "ignore"))
 
 def run(args):
+	global it
 	ftin, tg, setwt=parseArgs(args)
 	
 	if tg == 'sourcehan':
@@ -242,6 +315,12 @@ def run(args):
 		allfonts = allsans + allserif
 		
 		font = load_font(ftin)
+		if it=='a':
+			it=getit(font)
+		else:
+			setit(font, it=='y')
+		if not setwt:
+			setwt=getwt(font)
 		if not setwt:
 			setwt=getwt(font)
 		if 'macStyle' in font['head']:
