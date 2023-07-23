@@ -15,7 +15,7 @@ if platform.system() in ('Mac', 'Darwin'):
 if platform.system() == 'Linux':
 	otfccdump += '2'
 	otfccbuild += '2'
-TG= ('msyh', 'msjh', 'mingliu', 'simsun', 'simhei', 'msgothic', 'msmincho', 'meiryo', 'malgun', 'yugoth', 'yumin', 'batang', 'gulim', 'allsans', 'allserif', 'all', 'mingliub', 'simsunb', 'sourcehan')
+TG=('msyh', 'msjh', 'mingliu', 'simsun', 'simhei', 'msgothic', 'msmincho', 'meiryo', 'malgun', 'yugoth', 'yumin', 'batang', 'gulim', 'kaisb', 'simkai', 'allsans', 'allserif', 'allkai', 'all', 'mingliub', 'simsunb', 'sourcehan')
 WT=('thin', 'extralight', 'light', 'semilight', 'demilight', 'normal', 'regular', 'medium', 'demibold', 'semibold', 'bold', 'black', 'heavy', 'all')
 end={'Thin':'th', 'ExtraLight':'xl', 'Light':'l', 'Semilight':'sl', 'DemiLight':'dm', 'Normal':'nm', 'Regular':'', 'Medium':'md', 'Demibold':'db', 'SemiBold':'sb', 'Bold':'bd', 'Black':'bl', 'Heavy':'hv'}
 
@@ -311,6 +311,7 @@ def run(args):
 		print('正在载入字体...')
 		allsans = ('msyh', 'msjh', 'yugoth', 'msgothic', 'meiryo', 'gulim')
 		allserif = ('mingliu', 'simsun', 'msmincho', 'batang')
+		allkai = ('kaisb', 'simkai')
 		
 		allfonts = allsans + allserif
 		
@@ -336,6 +337,9 @@ def run(args):
 		if tg=='all':
 			for stg in allfonts:
 				bldttcft(font, stg, setwt)
+		elif tg=='allkai':
+			for stg in allkai:
+				bldttfft(font, stg, setwt)
 		elif tg=='allsans':
 			for stg in allsans:
 				bldttcft(font, stg, setwt)
@@ -358,7 +362,7 @@ def run_sourcehanfonts():
 	if Path(out_dir).exists():
 		shutil.rmtree(out_dir)
 	
-	for folder in ['sans', 'sans/hw', 'sans-ui', 'serif', 'serif/hw', 'rounded', 'rounded/hw']:
+	for folder in ['sans', 'sans/hw', 'sans-ui', 'serif', 'serif/hw', 'rounded', 'rounded/hw', 'kai']:
 		outdirs[folder] = str(Path(out_dir) / folder)
 		(Path(out_dir) / folder).mkdir(parents=True)
 	
@@ -516,6 +520,11 @@ def run_sourcehanfonts():
 	# SimHei
 	f = f'input/sans/AdvocateAncientSans-Regular.ttf'
 	run(['-i', f, '-tg', 'simhei', '-d', outdirs['sans'], '-wt', 'Regular'])
+	
+	# Kai
+	f = f'input/kai/LXGWWenKaiTC-Regular.ttf'
+	run(['-i', f, '-tg', 'kaisb', '-d', outdirs['kai'], '-wt', 'Regular'])
+	run(['-i', f, '-tg', 'simkai', '-d', outdirs['kai'], '-wt', 'Regular'])
 
 def main():
 	run(sys.argv[1:])
