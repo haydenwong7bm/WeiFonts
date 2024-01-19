@@ -532,7 +532,10 @@ def run_sourcehanfonts():
 	run(['-i', f, '-tg', 'simkai', '-d', outdirs['kai'], '-wt', 'Regular'])
 
 def main():
-	run(sys.argv[1:])
+    if sys.argv[1:]:
+        run(sys.argv[1:])
+    else:
+        run(['-tg', 'sourcehan', '-wt', 'all', '-d', 'output'])
 
 if __name__ == "__main__":
 	main()
