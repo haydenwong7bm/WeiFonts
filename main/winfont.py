@@ -339,6 +339,7 @@ def run(args):
 			bldttfft(font, 'simhei', setwt)
 		if tg in ('yumin', 'all', 'allserif'):
 			bldttfft(font, 'yumin', setwt)
+		
 		if tg=='all':
 			for stg in allfonts:
 				bldttcft(font, stg, setwt)
@@ -351,10 +352,8 @@ def run(args):
 		elif tg=='allserif':
 			for stg in allserif:
 				bldttcft(font, stg, setwt)
-		elif tg in ('simsunb', 'kaiu', 'simkai'):
-			bldttfft(font, tg, setwt)
 		else:
-			bldttcft(font, tg, setwt)
+			bldttfft(font, tg, setwt)
 		print('结束!')
 
 def run_sourcehanfonts():
@@ -532,10 +531,10 @@ def run_sourcehanfonts():
 	run(['-i', f, '-tg', 'simkai', '-d', outdirs['kai'], '-wt', 'Regular'])
 
 def main():
-    if sys.argv[1:]:
-        run(sys.argv[1:])
-    else:
-        run(['-tg', 'sourcehan', '-wt', 'all', '-d', 'output'])
+	if sys.argv[1:]:
+		run(sys.argv[1:])
+	else:
+		run(['-tg', 'sourcehan', '-wt', 'all', '-d', 'output'])
 
 if __name__ == "__main__":
 	main()
