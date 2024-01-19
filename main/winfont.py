@@ -213,6 +213,11 @@ def bldttcft(font, tgft, wt):
 			nmslist=[wtbuil(ncfg['yugothl'], wt), wtbuil(ncfg['yugothuil'], wt)]
 			ttflist=[otpth('YuGoth'+end[wt].upper()+'.ttf'), otpth('YuGothui'+end[wt].upper()+'.ttf')]
 			ttcfil=otpth('YuGoth'+end[wt].upper()+'.ttc')
+	else:
+		nmslist=[wtbuil(ncfg[tgft], wt), wtbuil(ncfg[tgft], wt)]
+		ttflist=[otpth(tgft+end[wt].upper()+'.ttf'), otpth(tgft+end[wt].upper()+'.ttf')]
+		ttcfil=otpth(tgft+end[wt]+'.ttc')
+		
 	if isit:
 		nmslist=[itbuil(nm) for nm in nmslist]
 		ttflist=[ttfl.replace('.ttf', 'It.ttf') for ttfl in ttflist]
@@ -322,8 +327,8 @@ def run(args):
 			setit(font, it=='y')
 		if not setwt:
 			setwt=getwt(font)
-		if not setwt:
-			setwt=getwt(font)
+		else:
+			setuswt(font, setwt.lower())
 		if 'macStyle' in font['head']:
 			font['head']['macStyle']['bold']=setwt=='Bold'
 		if 'fsSelection' in font['OS_2']:
@@ -346,9 +351,9 @@ def run(args):
 		elif tg=='allserif':
 			for stg in allserif:
 				bldttcft(font, stg, setwt)
-		elif tg=='simsunb':
+		elif tg in ('simsunb', 'kaiu', 'simkai'):
 			bldttfft(font, tg, setwt)
-		elif tg not in ('malgun', 'simhei', 'yumin'):
+		else:
 			bldttcft(font, tg, setwt)
 		print('结束!')
 
