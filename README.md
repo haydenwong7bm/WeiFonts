@@ -38,8 +38,11 @@
   | yumin  | Yu Mincho |
   | batang  | Batang、BatangChe、Gungsuh、GungsuhChe |
   | gulim  | Gulim、GulimChe、Dotum、DotumChe |
+  | kaiu  | 標楷體 |
+  | simkai  | 楷體 |
   | allsans  | 以上所有无衬线字体 |
   | allserif  | 以上所有衬线字体 |
+  | allkai  | 以上所有衬线字体 |
   | all  | 以上所有字体 |
 
   | tg | 目标字体 |
@@ -47,7 +50,7 @@
   | mingliub   | 細明體-ExtB、新細明體-ExtB、細明體_HKSCS-ExtB |
   | simsunb   | 宋体-ExtB |
 
-- `-wt` 字重(Weight)，可选，可使用 `"Thin", "ExtraLight", "Light", "Semilight", "DemiLight", "Normal", "Regular", "Medium", "Demibold", "SemiBold", "Bold", "Black", "Heavy"`。如未指定字重，程序会自动判断字重。
+- `-wt` 字重(Weight)，可选，可使用 `"Thin"`、`"ExtraLight"`、`"Light"`、`"Semilight"`、`"DemiLight"`、`"Normal"`、`"Regular"`、`"Medium"`、`"Demibold"`、`"SemiBold"`、`"Bold"`、`"Black"`、`"Heavy"`。如未指定字重，程序会自动判断字重。
 - `-it` 斜体(Italic)，可选，可使用 `-it y` 指定为斜体字体，`-it n` 指定为非斜体字体。如未指定，程序会使用输入字体的斜体属性。
 - `-d` 字体保存目录(Output Directory)，可选，如未指定，则使用当前目录。
 - `-r` TTC 打包完成后移除 TTF，可选。
