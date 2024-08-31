@@ -468,6 +468,10 @@ def run(args):
 		bldttfft(font, 'simhei', setwt)
 	if tg in ('yumin', 'all', 'allserif'):
 		bldttfft(font, 'yumin', setwt)
+	if tg in ('kaiu', 'all', 'allkai'):
+		bldttfft(font, 'kaiu', setwt)
+	if tg in ('simkai', 'all', 'allkai'):
+		bldttfft(font, 'simkai', setwt)
 	if tg=='all':
 		for stg in ('msyh', 'msjh', 'mingliu', 'simsun', 'yugoth', 'msgothic', 'msmincho', 'meiryo', 'batang', 'gulim'):
 			bldttcft(font, stg, setwt)
@@ -477,9 +481,6 @@ def run(args):
 	elif tg=='allserif':
 		for stg in ('mingliu', 'simsun', 'msmincho', 'batang'):
 			bldttcft(font, stg, setwt)
-	elif tg=='allkai':
-		for stg in ('kaiu', 'simkai'):
-			bldttfft(font, stg, setwt)
 	elif tg=='simsunb':
 		bldttfft(font, tg, setwt)
 	elif tg=='allext':
