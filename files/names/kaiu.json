@@ -1,0 +1,187 @@
+{
+  "ulCodePageRange1": 1048585,
+  "kaiu": [
+    {
+      "platformID": 1,
+      "encodingID": 0,
+      "languageID": 0,
+      "nameID": 0,
+      "nameString": "(c) Copyright DynaLab Inc. 1992-1998"
+    },
+    {
+      "platformID": 1,
+      "encodingID": 0,
+      "languageID": 0,
+      "nameID": 1,
+      "nameString": "DFKai-SB"
+    },
+    {
+      "platformID": 1,
+      "encodingID": 0,
+      "languageID": 0,
+      "nameID": 2,
+      "nameString": "Regular"
+    },
+    {
+      "platformID": 1,
+      "encodingID": 0,
+      "languageID": 0,
+      "nameID": 3,
+      "nameString": "DFKai-SB"
+    },
+    {
+      "platformID": 1,
+      "encodingID": 0,
+      "languageID": 0,
+      "nameID": 4,
+      "nameString": "DFKai-SB"
+    },
+    {
+      "platformID": 1,
+      "encodingID": 0,
+      "languageID": 0,
+      "nameID": 5,
+      "nameString": "Version 5.01"
+    },
+    {
+      "platformID": 1,
+      "encodingID": 0,
+      "languageID": 0,
+      "nameID": 6,
+      "nameString": "DFKaiShu-SB-Estd-BF"
+    },
+    {
+      "platformID": 1,
+      "encodingID": 0,
+      "languageID": 0,
+      "nameID": 7,
+      "nameString": "Trademark by DynaLab Inc."
+    },
+    {
+      "platformID": 1,
+      "encodingID": 0,
+      "languageID": 0,
+      "nameID": 13,
+      "nameString": "Microsoft supplied font. You may use this font to create, display, and print content as permitted by the license terms or terms of use, of the Microsoft product, service, or content in which this font was included. You may only (i) embed this font in content as permitted by the embedding restrictions included in this font; and (ii) temporarily download this font to a printer or other output device to help print content. Any other use is prohibited."
+    },
+    {
+      "platformID": 3,
+      "encodingID": 1,
+      "languageID": 1028,
+      "nameID": 0,
+      "nameString": "(c) Copyright DynaLab Inc. 1992-1998"
+    },
+    {
+      "platformID": 3,
+      "encodingID": 1,
+      "languageID": 1028,
+      "nameID": 1,
+      "nameString": "標楷體"
+    },
+    {
+      "platformID": 3,
+      "encodingID": 1,
+      "languageID": 1028,
+      "nameID": 2,
+      "nameString": "Regular"
+    },
+    {
+      "platformID": 3,
+      "encodingID": 1,
+      "languageID": 1028,
+      "nameID": 3,
+      "nameString": "標楷體"
+    },
+    {
+      "platformID": 3,
+      "encodingID": 1,
+      "languageID": 1028,
+      "nameID": 4,
+      "nameString": "標楷體"
+    },
+    {
+      "platformID": 3,
+      "encodingID": 1,
+      "languageID": 1028,
+      "nameID": 5,
+      "nameString": "Version 5.01"
+    },
+    {
+      "platformID": 3,
+      "encodingID": 1,
+      "languageID": 1028,
+      "nameID": 6,
+      "nameString": "DFKaiShu-SB-Estd-BF"
+    },
+    {
+      "platformID": 3,
+      "encodingID": 1,
+      "languageID": 1028,
+      "nameID": 7,
+      "nameString": "Trademark by DynaLab Inc."
+    },
+    {
+      "platformID": 3,
+      "encodingID": 1,
+      "languageID": 1033,
+      "nameID": 0,
+      "nameString": "(c) Copyright DynaLab Inc. 1992-1998"
+    },
+    {
+      "platformID": 3,
+      "encodingID": 1,
+      "languageID": 1033,
+      "nameID": 1,
+      "nameString": "DFKai-SB"
+    },
+    {
+      "platformID": 3,
+      "encodingID": 1,
+      "languageID": 1033,
+      "nameID": 2,
+      "nameString": "Regular"
+    },
+    {
+      "platformID": 3,
+      "encodingID": 1,
+      "languageID": 1033,
+      "nameID": 3,
+      "nameString": "DFKai-SB"
+    },
+    {
+      "platformID": 3,
+      "encodingID": 1,
+      "languageID": 1033,
+      "nameID": 4,
+      "nameString": "DFKai-SB"
+    },
+    {
+      "platformID": 3,
+      "encodingID": 1,
+      "languageID": 1033,
+      "nameID": 5,
+      "nameString": "Version 5.01"
+    },
+    {
+      "platformID": 3,
+      "encodingID": 1,
+      "languageID": 1033,
+      "nameID": 6,
+      "nameString": "DFKaiShu-SB-Estd-BF"
+    },
+    {
+      "platformID": 3,
+      "encodingID": 1,
+      "languageID": 1033,
+      "nameID": 7,
+      "nameString": "Trademark by DynaLab Inc."
+    },
+    {
+      "platformID": 3,
+      "encodingID": 1,
+      "languageID": 1033,
+      "nameID": 13,
+      "nameString": "Microsoft supplied font. You may use this font to create, display, and print content as permitted by the license terms or terms of use, of the Microsoft product, service, or content in which this font was included. You may only (i) embed this font in content as permitted by the embedding restrictions included in this font; and (ii) temporarily download this font to a printer or other output device to help print content. Any other use is prohibited."
+    }
+  ]
+}

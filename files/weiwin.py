@@ -175,7 +175,7 @@ outd=str()
 it='a'
 rmttf=False
 
-TG= ('msyh', 'msjh', 'mingliu', 'simsun', 'simhei', 'msgothic', 'msmincho', 'meiryo', 'malgun', 'yugoth', 'yumin', 'batang', 'gulim', 'allsans', 'allserif', 'all', 'mingliub', 'simsunb')
+TG=('msyh', 'msjh', 'mingliu', 'simsun', 'simhei', 'msgothic', 'msmincho', 'meiryo', 'malgun', 'yugoth', 'yumin', 'batang', 'gulim', 'kaiu', 'simkai', 'allsans', 'allserif', 'allkai', 'all', 'mingliub', 'simsunb', 'allext')
 WT=('thin', 'extralight', 'light', 'semilight', 'demilight', 'normal', 'regular', 'medium', 'demibold', 'semibold', 'bold', 'black', 'heavy')
 end={'Thin':'th', 'ExtraLight':'xl', 'Light':'l', 'Semilight':'sl', 'DemiLight':'dm', 'Normal':'nm', 'Regular':'', 'Medium':'md', 'Demibold':'db', 'SemiBold':'sb', 'Bold':'bd', 'Black':'bl', 'Heavy':'hv'}
 
@@ -309,7 +309,7 @@ def bldttcft(font, tgft, wt):
 			nmslist=[wtbuil(ncfg[tgft+'l'], wt), wtbuil(ncfg['n'+tgft+'l'], wt)]
 		else:
 			nmslist=[ncfg[tgft+end[wt]], ncfg['n'+tgft+end[wt]]]
-		ttflist=[otpth(tgft+end[wt]+'.ttf'), otpth('p'+tgft+end[wt]+'.ttf')]
+		ttflist=[otpth(tgft+end[wt]+'.ttf'), otpth('n'+tgft+end[wt]+'.ttf')]
 		ttcfil=otpth(tgft+end[wt]+'.ttc')
 	elif tgft in ('mingliu', 'mingliub'):
 		if wt not in ('Regular', 'Bold', 'Light'):
@@ -403,6 +403,7 @@ def parseArgs(args):
 	while i < argn:
 		arg  = args[i]
 		i += 1
+		rmttf = False
 		if arg == "-i":
 			inFilePath = args[i]
 			i += 1
@@ -476,8 +477,14 @@ def run(args):
 	elif tg=='allserif':
 		for stg in ('mingliu', 'simsun', 'msmincho', 'batang'):
 			bldttcft(font, stg, setwt)
+	elif tg=='allkai':
+		for stg in ('kaiu', 'simkai'):
+			bldttfft(font, stg, setwt)
 	elif tg=='simsunb':
 		bldttfft(font, tg, setwt)
+	elif tg=='allext':
+		bldttfft(font, 'simsunb', setwt)
+		bldttcft(font, 'mingliub', setwt)
 	elif tg not in ('malgun', 'simhei', 'yumin'):
 		bldttcft(font, tg, setwt)
 	print('End!')
