@@ -44,7 +44,7 @@ SERIF_HW = {
     'light': 'input/serif/ShangguSerifHW-Light.ttf',
     }
     
-KAI = 'input/kai/LXGWWenKaiTC-Regular.ttf'
+KAI = 'input/kai/LXGWWenKaiMonoTC-Regular.ttf'
 
 EXT = 'input/ext/PlangothicP1-Regular.allideo.ttf'
 
