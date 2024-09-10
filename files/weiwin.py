@@ -486,7 +486,7 @@ def run(args):
 	elif tg=='allext':
 		bldttfft(font, 'simsunb', setwt)
 		bldttcft(font, 'mingliub', setwt)
-	elif tg not in ('malgun', 'simhei', 'yumin'):
+	elif tg not in ('malgun', 'simhei', 'yumin', 'allkai'):
 		bldttcft(font, tg, setwt)
 	print('End!')
 
