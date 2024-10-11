@@ -280,7 +280,8 @@ def bldttfft(font, tgft, wt):
 	if wt not in wts: nmslist=wtbuil(ncfg[tgft+'l'], wt)
 	elif tgft=='deng': nmslist=ncfg[tgft+end[wt].replace('bd', 'b')]
 	else: nmslist=ncfg[tgft+end[wt]]
-	ttflist=otpth(tgft+end[wt]+'.ttf')
+	if tgft=='deng': ttflist=otpth(tgft+end[wt].replace('bd', 'b')+'.ttf')
+	else: ttflist=otpth(tgft+end[wt]+'.ttf')
 	if it=='y':
 		nmslist=itbuil(nmslist)
 		ttflist=otpth(tgft+end[wt]+'It.ttf')
@@ -488,7 +489,7 @@ def run(args):
 		bldttfft(font, 'kaiu', setwt)
 	if tg in ('simkai', 'all', 'allkai'):
 		bldttfft(font, 'simkai', setwt)
-	if tg in ('deng', 'all', 'allkai'):
+	if tg in ('deng', 'all', 'allsans'):
 		bldttfft(font, 'deng', setwt)
 	if tg=='all':
 		for stg in ('msyh', 'msjh', 'mingliu', 'simsun', 'yugoth', 'msgothic', 'msmincho', 'meiryo', 'batang', 'gulim'):
