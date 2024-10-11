@@ -25,8 +25,8 @@
 
   | tg | 目标字体 |
   | ---- | :---- |
-  | msyh   | 微软雅黑、微软雅黑 UI |
-  | msjh   | 微軟正黑體、微軟正黑體 UI |
+  | msyh/msyahei/yahei   | 微软雅黑、微软雅黑 UI |
+  | msjh/msjhenghei/jhenghei   | 微軟正黑體、微軟正黑體 UI |
   | mingliu | 細明體、新細明體、細明體_HKSCS |
   | simsun  | 宋体、新宋体 |
   | simsun  | 黑体 |
@@ -34,10 +34,11 @@
   | msmincho | MS Mincho、MS PMincho |
   | meiryo  | Meiryo、Meiryo UI |
   | malgun  | Malgun Gothic |
-  | yugoth  | Yu Gothic、Yu Gothic UI |
-  | yumin  | Yu Mincho |
+  | yugoth/yugothic  | Yu Gothic、Yu Gothic UI |
+  | deng/dengxian  | 等线 |
+  | yumin/yumincho  | Yu Mincho |
   | batang  | Batang、BatangChe、Gungsuh、GungsuhChe |
-  | gulim  | Gulim、GulimChe、Dotum、DotumChe |
+  | gulim/dotum  | Gulim、GulimChe、Dotum、DotumChe |
   | kaiu  | 標楷體 |
   | simkai  | 楷體 |
   | allsans  | 以上所有无衬线字体 |
@@ -49,6 +50,7 @@
   | ---- | :---- |
   | mingliub   | 細明體-ExtB、新細明體-ExtB、細明體_HKSCS-ExtB |
   | simsunb   | 宋体-ExtB |
+  | simsunextg/simsung   | 宋体-ExtG |
 
 - `-wt` 字重(Weight)，可选，可使用 `"Thin"`、`"ExtraLight"`、`"Light"`、`"Semilight"`、`"DemiLight"`、`"Normal"`、`"Regular"`、`"Medium"`、`"Demibold"`、`"SemiBold"`、`"Bold"`、`"Black"`、`"Heavy"`。如未指定字重，程序会自动判断字重。
 - `-it` 斜体(Italic)，可选，可使用 `-it y` 指定为斜体字体，`-it n` 指定为非斜体字体。如未指定，程序会使用输入字体的斜体属性。
