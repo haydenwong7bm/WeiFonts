@@ -175,7 +175,7 @@ outd=str()
 it='a'
 rmttf=False
 
-TG=('msyh', 'msjh', 'mingliu', 'simsun', 'simhei', 'msgothic', 'msmincho', 'meiryo', 'malgun', 'yugoth', 'yumin', 'batang', 'gulim', 'kaiu', 'simkai', 'allsans', 'allserif', 'allkai', 'all', 'mingliub', 'simsunb', 'allext')
+TG=('msyh', 'msjh', 'mingliu', 'simsun', 'simhei', 'msgothic', 'msmincho', 'meiryo', 'malgun', 'yugoth', 'yumin', 'batang', 'gulim', 'kaiu', 'simkai', 'allsans', 'allserif', 'allkai', 'all', 'mingliub', 'simsunb', 'simsunextg', 'allextb')
 WT=('thin', 'extralight', 'light', 'semilight', 'demilight', 'normal', 'regular', 'medium', 'demibold', 'semibold', 'bold', 'black', 'heavy')
 end={'Thin':'th', 'ExtraLight':'xl', 'Light':'l', 'Semilight':'sl', 'DemiLight':'dm', 'Normal':'nm', 'Regular':'', 'Medium':'md', 'Demibold':'db', 'SemiBold':'sb', 'Bold':'bd', 'Black':'bl', 'Heavy':'hv'}
 
@@ -430,8 +430,10 @@ def parseArgs(args):
 	if not tarGet:
 		raise RuntimeError(f"You must specify target.{TG}")
 	elif tarGet not in TG:
-		raise RuntimeError(f"Unknown target \"{tarGet}\"，please use {TG}.\n")
-
+		if tarGet == 'simsung':
+			tarGet = 'simsunextg'
+		else:
+			raise RuntimeError(f"Unknown target \"{tarGet}\"，please use {TG}.\n")
 	if it.lower() not in ('a', 'y', 'n'):
 		raise RuntimeError(f'Unknown italic setting "{it}"，please use "y" or "n".\n')
 	if weight:
@@ -481,9 +483,9 @@ def run(args):
 	elif tg=='allserif':
 		for stg in ('mingliu', 'simsun', 'msmincho', 'batang'):
 			bldttcft(font, stg, setwt)
-	elif tg=='simsunb':
+	elif tg in ('simsunb', 'simsunextg'):
 		bldttfft(font, tg, setwt)
-	elif tg=='allext':
+	elif tg=='allextb':
 		bldttfft(font, 'simsunb', setwt)
 		bldttcft(font, 'mingliub', setwt)
 	elif tg not in ('malgun', 'simhei', 'yumin', 'allkai'):

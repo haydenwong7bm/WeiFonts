@@ -46,7 +46,8 @@ SERIF_HW = {
     
 KAI = 'input/kai/LXGWWenKaiMonoTC-Regular.ttf'
 
-EXT = 'input/ext/PlangothicP1-Regular.allideo.ttf'
+EXT_P2 = 'input/ext/PlangothicP1-Regular.allideo.ttf'
+EXT_P3 = 'input/ext/PlangothicP2-Regular.ttf'
 
 # Sans/Rounded fonts
 
@@ -167,4 +168,5 @@ convert(['-i', KAI, '-tg', 'allkai', '-d', output_paths['kai'], '-r'])
 
 # Extension Planes
 
-convert(['-i', EXT, '-tg', 'allext', '-d', output_paths['ext'], '-r'])
+convert(['-i', EXT_P2, '-tg', 'allextb', '-d', output_paths['ext'], '-r'])
+convert(['-i', EXT_P3, '-tg', 'simsunextg', '-d', output_paths['ext'], '-r'])
