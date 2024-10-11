@@ -48,8 +48,8 @@
 
   | tg | 目标字体 |
   | ---- | :---- |
-  | mingliub   | 細明體-ExtB、新細明體-ExtB、細明體_HKSCS-ExtB |
-  | simsunb   | 宋体-ExtB |
+  | mingliub/mingliuextb   | 細明體-ExtB、新細明體-ExtB、細明體_HKSCS-ExtB |
+  | simsunb/simsunextb   | 宋体-ExtB |
   | simsunextg/simsung   | 宋体-ExtG |
 
 - `-wt` 字重(Weight)，可选，可使用 `"Thin"`、`"ExtraLight"`、`"Light"`、`"Semilight"`、`"DemiLight"`、`"Normal"`、`"Regular"`、`"Medium"`、`"Demibold"`、`"SemiBold"`、`"Bold"`、`"Black"`、`"Heavy"`。如未指定字重，程序会自动判断字重。
