@@ -431,10 +431,19 @@ def parseArgs(args):
 	if not tarGet:
 		raise RuntimeError(f"You must specify target.{TG}")
 	elif tarGet not in TG:
-		if tarGet == 'simsung':
-			tarGet = 'simsunextg'
-		elif tarGet == 'dengxian':
-			tarGet = 'deng'
+		ALIAS = {
+			"simsung": "simsunextg",
+			"dengxian": "deng",
+			"yahei": "msyh",
+			"msyahei": "msyh",
+			"jhenghei": "msjh",
+			"msjhenghei": "msjh",
+			"yugothic": "yugoth",
+			"yumincho": "yumin",
+			"dotum": "gulim",
+			}
+		if tarGet in ALIAS:
+			tarGet = ALIAS[tarGet]
 		else:
 			raise RuntimeError(f"Unknown target \"{tarGet}\"，please use {TG}.\n")
 	if it.lower() not in ('a', 'y', 'n'):
