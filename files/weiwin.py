@@ -433,6 +433,8 @@ def parseArgs(args):
 	elif tarGet not in TG:
 		ALIAS = {
 			"simsung": "simsunextg",
+			"simsunextb": "simsunb",
+			"mingliuextb": "mingliub",
 			"dengxian": "deng",
 			"yahei": "msyh",
 			"msyahei": "msyh",
