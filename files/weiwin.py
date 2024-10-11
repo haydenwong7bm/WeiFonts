@@ -175,7 +175,7 @@ outd=str()
 it='a'
 rmttf=False
 
-TG=('msyh', 'msjh', 'mingliu', 'simsun', 'simhei', 'msgothic', 'msmincho', 'meiryo', 'malgun', 'yugoth', 'yumin', 'batang', 'gulim', 'kaiu', 'simkai', 'allsans', 'allserif', 'allkai', 'all', 'mingliub', 'simsunb', 'simsunextg', 'allextb')
+TG=('msyh', 'msjh', 'mingliu', 'simsun', 'simhei', 'msgothic', 'msmincho', 'meiryo', 'malgun', 'yugoth', 'deng', 'yumin', 'batang', 'gulim', 'kaiu', 'simkai', 'allsans', 'allserif', 'allkai', 'all', 'mingliub', 'simsunb', 'simsunextg', 'allextb')
 WT=('thin', 'extralight', 'light', 'semilight', 'demilight', 'normal', 'regular', 'medium', 'demibold', 'semibold', 'bold', 'black', 'heavy')
 end={'Thin':'th', 'ExtraLight':'xl', 'Light':'l', 'Semilight':'sl', 'DemiLight':'dm', 'Normal':'nm', 'Regular':'', 'Medium':'md', 'Demibold':'db', 'SemiBold':'sb', 'Bold':'bd', 'Black':'bl', 'Heavy':'hv'}
 
@@ -278,6 +278,7 @@ def bldttfft(font, tgft, wt):
 	elif tgft=='yumin':wts=('Regular', 'Bold', 'Demibold', 'Light')
 	else:wts=('Regular', 'Bold', 'Light')
 	if wt not in wts: nmslist=wtbuil(ncfg[tgft+'l'], wt)
+	elif tgft=='deng': nmslist=ncfg[tgft+end[wt].replace('bd', 'b')]
 	else: nmslist=ncfg[tgft+end[wt]]
 	ttflist=otpth(tgft+end[wt]+'.ttf')
 	if it=='y':
@@ -432,6 +433,8 @@ def parseArgs(args):
 	elif tarGet not in TG:
 		if tarGet == 'simsung':
 			tarGet = 'simsunextg'
+		elif tarGet == 'dengxian':
+			tarGet = 'deng'
 		else:
 			raise RuntimeError(f"Unknown target \"{tarGet}\"，please use {TG}.\n")
 	if it.lower() not in ('a', 'y', 'n'):
@@ -474,6 +477,8 @@ def run(args):
 		bldttfft(font, 'kaiu', setwt)
 	if tg in ('simkai', 'all', 'allkai'):
 		bldttfft(font, 'simkai', setwt)
+	if tg in ('deng', 'all', 'allkai'):
+		bldttfft(font, 'deng', setwt)
 	if tg=='all':
 		for stg in ('msyh', 'msjh', 'mingliu', 'simsun', 'yugoth', 'msgothic', 'msmincho', 'meiryo', 'batang', 'gulim'):
 			bldttcft(font, stg, setwt)
@@ -488,7 +493,7 @@ def run(args):
 	elif tg=='allextb':
 		bldttfft(font, 'simsunb', setwt)
 		bldttcft(font, 'mingliub', setwt)
-	elif tg not in ('malgun', 'simhei', 'yumin', 'allkai'):
+	elif tg not in ('malgun', 'deng', 'simhei', 'yumin', 'allkai'):
 		bldttcft(font, tg, setwt)
 	print('End!')
 

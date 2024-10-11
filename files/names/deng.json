@@ -1,0 +1,394 @@
+{
+    "ulCodePageRange1": 262159,
+    "deng": [
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 1033,
+            "nameID": 0,
+            "nameString": "Copyright(c) Beijing Founder Electronics Co.,Ltd.2012"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 1033,
+            "nameID": 1,
+            "nameString": "DengXian"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 1033,
+            "nameID": 2,
+            "nameString": "Regular"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 1033,
+            "nameID": 3,
+            "nameString": "DengXian Regular"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 1033,
+            "nameID": 4,
+            "nameString": "DengXian Regular"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 1033,
+            "nameID": 5,
+            "nameString": "Version 1.21"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 1033,
+            "nameID": 6,
+            "nameString": "DengXian"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 1033,
+            "nameID": 7,
+            "nameString": "By Beijing Founder Electronics Co.,Ltd. \u5317\u4eac\u5317\u5927\u65b9\u6b63\u7535\u5b50\u6709\u9650\u516c\u53f8"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 1033,
+            "nameID": 13,
+            "nameString": "Microsoft supplied font. You may use this font to create, display, and print content as permitted by the license terms or terms of use, of the Microsoft product, service, or content in which this font was included. You may only (i) embed this font in content as permitted by the embedding restrictions included in this font; and (ii) temporarily download this font to a printer or other output device to help print content. Any other use is prohibited."
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 2052,
+            "nameID": 0,
+            "nameString": "Copyright(c) Beijing Founder Electronics Co.,Ltd.2012"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 2052,
+            "nameID": 1,
+            "nameString": "\u7b49\u7ebf"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 2052,
+            "nameID": 2,
+            "nameString": "Regular"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 2052,
+            "nameID": 3,
+            "nameString": "\u7b49\u7ebf Regular"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 2052,
+            "nameID": 4,
+            "nameString": "\u7b49\u7ebf"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 2052,
+            "nameID": 5,
+            "nameString": "Version 1.21"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 2052,
+            "nameID": 6,
+            "nameString": "Dengxian"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 2052,
+            "nameID": 7,
+            "nameString": "By Beijing Founder Electronics Co.,Ltd. \u5317\u4eac\u5317\u5927\u65b9\u6b63\u7535\u5b50\u6709\u9650\u516c\u53f8"
+        }
+    ],
+    "dengb": [
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 1033,
+            "nameID": 0,
+            "nameString": "Copyright(c) Beijing Founder Electronics Co.,Ltd.2012"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 1033,
+            "nameID": 1,
+            "nameString": "DengXian"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 1033,
+            "nameID": 2,
+            "nameString": "Bold"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 1033,
+            "nameID": 3,
+            "nameString": "DengXian Bold"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 1033,
+            "nameID": 4,
+            "nameString": "DengXian Bold"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 1033,
+            "nameID": 5,
+            "nameString": "Version 1.21"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 1033,
+            "nameID": 6,
+            "nameString": "DengXian-Bold"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 1033,
+            "nameID": 7,
+            "nameString": "By Beijing Founder Electronics Co.,Ltd. \u5317\u4eac\u5317\u5927\u65b9\u6b63\u7535\u5b50\u6709\u9650\u516c\u53f8"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 1033,
+            "nameID": 13,
+            "nameString": "Microsoft supplied font. You may use this font to create, display, and print content as permitted by the license terms or terms of use, of the Microsoft product, service, or content in which this font was included. You may only (i) embed this font in content as permitted by the embedding restrictions included in this font; and (ii) temporarily download this font to a printer or other output device to help print content. Any other use is prohibited."
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 2052,
+            "nameID": 0,
+            "nameString": "Copyright(c) Beijing Founder Electronics Co.,Ltd.2012"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 2052,
+            "nameID": 1,
+            "nameString": "\u7b49\u7ebf"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 2052,
+            "nameID": 2,
+            "nameString": "Bold"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 2052,
+            "nameID": 3,
+            "nameString": "\u7b49\u7ebf Bold"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 2052,
+            "nameID": 4,
+            "nameString": "\u7b49\u7ebf Bold"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 2052,
+            "nameID": 5,
+            "nameString": "Version 1.21"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 2052,
+            "nameID": 6,
+            "nameString": "Dengxian-Bold"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 2052,
+            "nameID": 7,
+            "nameString": "By Beijing Founder Electronics Co.,Ltd. \u5317\u4eac\u5317\u5927\u65b9\u6b63\u7535\u5b50\u6709\u9650\u516c\u53f8"
+        }
+    ],
+    "dengl": [
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 1033,
+            "nameID": 0,
+            "nameString": "Copyright(c) Beijing Founder Electronics Co.,Ltd.2012"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 1033,
+            "nameID": 1,
+            "nameString": "DengXian Light"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 1033,
+            "nameID": 2,
+            "nameString": "Regular"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 1033,
+            "nameID": 3,
+            "nameString": "DengXian Light"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 1033,
+            "nameID": 4,
+            "nameString": "DengXian Light"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 1033,
+            "nameID": 5,
+            "nameString": "Version 1.21"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 1033,
+            "nameID": 6,
+            "nameString": "DengXian-Light"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 1033,
+            "nameID": 7,
+            "nameString": "By Beijing Founder Electronics Co.,Ltd. \u5317\u4eac\u5317\u5927\u65b9\u6b63\u7535\u5b50\u6709\u9650\u516c\u53f8"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 1033,
+            "nameID": 13,
+            "nameString": "Microsoft supplied font. You may use this font to create, display, and print content as permitted by the license terms or terms of use, of the Microsoft product, service, or content in which this font was included. You may only (i) embed this font in content as permitted by the embedding restrictions included in this font; and (ii) temporarily download this font to a printer or other output device to help print content. Any other use is prohibited."
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 1033,
+            "nameID": 16,
+            "nameString": "DengXian"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 1033,
+            "nameID": 17,
+            "nameString": "Light"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 2052,
+            "nameID": 0,
+            "nameString": "Copyright(c) Beijing Founder Electronics Co.,Ltd.2012"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 2052,
+            "nameID": 1,
+            "nameString": "\u7b49\u7ebf Light"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 2052,
+            "nameID": 2,
+            "nameString": "Regular"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 2052,
+            "nameID": 3,
+            "nameString": "\u7b49\u7ebf Light"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 2052,
+            "nameID": 4,
+            "nameString": "\u7b49\u7ebf Light"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 2052,
+            "nameID": 5,
+            "nameString": "Version 1.21"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 2052,
+            "nameID": 6,
+            "nameString": "Dengxian-Light"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 2052,
+            "nameID": 7,
+            "nameString": "By Beijing Founder Electronics Co.,Ltd. \u5317\u4eac\u5317\u5927\u65b9\u6b63\u7535\u5b50\u6709\u9650\u516c\u53f8"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 2052,
+            "nameID": 16,
+            "nameString": "\u7b49\u7ebf"
+        },
+        {
+            "platformID": 3,
+            "encodingID": 1,
+            "languageID": 2052,
+            "nameID": 17,
+            "nameString": "Light"
+        }
+    ]
+}
