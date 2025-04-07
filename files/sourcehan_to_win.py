@@ -46,7 +46,7 @@ SERIF_HW = {
     
 KAI = 'input/kai/LXGWWenKaiMonoTC-Regular.ttf'
 
-EXT_P2 = 'input/ext/PlangothicP1-Regular.allideo.ttf'
+EXT_P2 = 'input/ext/PlangothicP1-Regular.ttf'
 EXT_P3 = 'input/ext/PlangothicP2-Regular.ttf'
 
 # Sans/Rounded fonts
