@@ -1,6 +1,7 @@
 import os, shutil
 from pathlib import Path
 
+from weiwei import buitotf
 from weiwin import run as convert
 from otf2otc import run as otf2otc
 
@@ -22,11 +23,13 @@ SANS = {
     'bold': 'input/sans/ShangguSans-Bold.ttf',
     'medium': 'input/sans/ShangguSans-Medium.ttf',
     'light': 'input/sans/ShangguSans-Light.ttf',
+    'vf': 'input/sans/ShangguSans-VF.ttf'
     }
 SANS_HW = {
     'regular': 'input/sans/ShangguSansHW-Regular.ttf',
     'bold': 'input/sans/ShangguSansHW-Bold.ttf',
     'light': 'input/sans/ShangguSansHW-Light.ttf',
+    'vf': 'input/sans/ShangguSans-VF.ttf',
     }
 
 ROUNDED = SANS
@@ -37,11 +40,13 @@ SERIF = {
     'bold': 'input/serif/ShangguSerif-Bold.ttf',
     'heavy': 'input/serif/ShangguSerif-Heavy.ttf',
     'light': 'input/serif/ShangguSerif-Light.ttf',
+    'vf': 'input/serif/ShangguSerif-VF.ttf',
     }
 SERIF_HW = {
     'regular': 'input/serif/ShangguSerifHW-Regular.ttf',
     'bold': 'input/serif/ShangguSerifHW-Bold.ttf',
     'light': 'input/serif/ShangguSerifHW-Light.ttf',
+    'vf': 'input/serif/ShangguSerifHW-VF.ttf',
     }
     
 KAI = 'input/kai/LXGWWenKaiMonoTC-Regular.ttf'
@@ -172,3 +177,18 @@ convert(['-i', KAI, '-tg', 'allkai', '-d', output_paths['kai'], '-r'])
 
 convert(['-i', EXT_P2, '-tg', 'allextb', '-d', output_paths['ext'], '-r'])
 convert(['-i', EXT_P3, '-tg', 'simsunextg', '-d', output_paths['ext'], '-r'])
+
+# Variable Fonts to Noto CJK
+
+for locale in ['HK', 'KR', 'JP', 'TC', 'SC']:
+    target_sans = f'NotoSans{locale}-VF.ttf'
+    target_serif = f'NotoSerif{locale}-VF.ttf'
+    
+    model_sans = f'C:/Windows/Fonts/{target_sans}'
+    model_serif = f'C:/Windows/Fonts/{target_serif}'
+    
+    output_sans = f'{output_paths["sans"]}/{target_sans}'
+    output_serif = f'{output_paths["serif"]}/{target_serif}'
+    
+    buitotf(SANS["vf"], output_sans, model_sans)
+    buitotf(SERIF["vf"], output_serif, model_serif)
